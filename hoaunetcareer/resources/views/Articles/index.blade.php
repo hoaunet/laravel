@@ -1,6 +1,14 @@
 @extends('layouts.master')
 @section('title', 'Hướng nghiệp')
 @section('content')
+<ul class="box_m_news">
+    @foreach($catagories as $catagory)
+    	@if($catagory->parent_id !=0)
+    		<li><a class="" href="/category/{{$catagory->id}}">{{$catagory->name}}</a></li> 
+        @endif
+    @endforeach
+    
+</ul>
 <div class="adtop"><a href="#" target="_blank"><img src="/uploads/banners/homepage.JPG" alt="Banner top"></a></div>
 <div class="FloatLeft W686">
   <div class="Inner5">
@@ -110,6 +118,7 @@
       <div class="cl"></div>
     </div>
   </div>
+  <?php //print_r($catagories);?>
   <div class="boxM grhh" style="border:3px #10ae44 solid;">
     <div class="bg">
       <div class="t"><a href="/huong-nghiep/ngan-hang-tuyen-dung-c112.html">Ngân hàng tuyển dụng</a></div>
@@ -127,125 +136,7 @@
       <div class="cl"></div>
     </div>
   </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/dinh-huong-du-hoc-c3.html">ĐỊNH HƯỚNG DU HỌC</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/co-hoi-viec-lam-va-dinh-cu-tai-duc-nid192.html"><img src="/images/news/192.jpg" alt="Cơ hội việc làm và định cư tại Đức"></a> <strong><a href="/huong-nghiep/co-hoi-viec-lam-va-dinh-cu-tai-duc-nid192.html">Cơ hội việc làm và định cư tại Đức</a></strong>
-          <div>Sau khi tốt nghiệp đại học/thạc sỹ, cũng theo quy định của Luật lưu trú, sinh viên quốc tế nếu có nguyện vọng sẽ được gia hạn giấy phép cư trú trong 18 tháng để tìm việc làm. Nếu tìm được việc làm tương thích với chuyên ngành mình đã học, giấy phép cư trú với mục đích lao động sẽ được cấp tương ứng với hợp đồng lao động đã được kí kết. Người nào cư trú liên tục tại Đức với giấy phép lao động sau 8 năm sẽ được cấp giấy phép cư trú vĩnh viễn.</div>
-        </li>
-        <li> <a href="/huong-nghiep/ngay-hoi-phong-van-du-hoc-anh-nid153.html"><img src="/images/news/153.jpg" alt="Ngày hội phỏng vấn du học Anh"></a> <strong><a href="/huong-nghiep/ngay-hoi-phong-van-du-hoc-anh-nid153.html">Ngày hội phỏng vấn du học Anh</a></strong>
-          <div>Liên hệ: Tập đoàn giáo dục và dịch vụ toàn cầu (GSE-BEO). Văn phòng Hà Nội: tầng 2, tòa nhà Toserco, 273 Kim Mã, Ba Đình, Hà Nội. Điện thoại: (04) 3771 3561 - 09 2 363 5656. Email: hanoi@gse-beo.edu.vn Website:www.gse-beo.edu.vn</div>
-        </li>
-        <li> <a href="/huong-nghiep/tuan-le-tu-van-du-hoc-viec-lam-australia-2015-nid118.html"><img src="/images/news/118.jpg" alt="Tuần lễ tư vấn du học, việc làm Australia 2015"></a> <strong><a href="/huong-nghiep/tuan-le-tu-van-du-hoc-viec-lam-australia-2015-nid118.html">Tuần lễ tư vấn du học, việc làm Australia 2015</a></strong>
-          <div>Australia là đất nước có khí hậu tốt và phong cảnh thiên nhiên đẹp với những vùng sa mạc rộng lớn, những thành phố hiện đại và bãi biển nổi tiếng thế giới. Học sinh, sinh viên thuộc nhiều quốc gia trên thế giới chọn đến du học Australia vì ngoài nền giáo dục danh tiếng, nơi đây còn là một xã hội năng động, thân thiện và tự tin. Dân chúng Australia có đầu óc cải tiến, hiếu khách và văn hoá đa dạng. Với dân số có nguồn gốc từ hơn 140 quốc gia, Australia còn là một trong những nước có nền văn hoá đ</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/cam-nang-tuyen-dung-c110.html">Cẩm nang tuyển dụng</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/cam-nang-tuyen-dung-viec-lam-voi-nguoi-nhat-nid259.html"><img src="/images/news/259.jpg" alt="Cẩm nang tuyển dụng việc làm với người Nhật"></a> <strong><a href="/huong-nghiep/cam-nang-tuyen-dung-viec-lam-voi-nguoi-nhat-nid259.html">Cẩm nang tuyển dụng việc làm với người Nhật</a></strong>
-          <div>Khi một người Nhật được một công ty Nhật tuyển dụng, họ có thể sẽ không nhận được một bản miêu tả công việc chính xác; nhân viên mới có thể thậm chí không biết lương và phúc lợi của họ sẽ thế nào, một tình thế mà không mấy người phương Tây cảm thấy thoải mái. Người phương Tây muốn lời hứa phải được nói rõ ràng. Người Nhật đặt lòng tin nhiều hơn vào những vấn đề khác - uy tín của công ty hay người đã tiến cử ứng viên.</div>
-        </li>
-        <li> <a href="/huong-nghiep/ngan-hang-tmcp-quoc-te-viet-nam-vib-tuyen-dung-giao-dich-vien-tai-hai-phong-30-11-2015-nid257.html"><img src="/images/news/257.jpg" alt="Ngân hàng TMCP Quốc Tế Việt Nam (VIB) tuyển dụng Giao dịch viên tại Hải Phòng 30.11.2015"></a> <strong><a href="/huong-nghiep/ngan-hang-tmcp-quoc-te-viet-nam-vib-tuyen-dung-giao-dich-vien-tai-hai-phong-30-11-2015-nid257.html">Ngân hàng TMCP Quốc Tế Việt Nam (VIB) tuyển dụng Giao dịch viên tại Hải Phòng 30.11.2015</a></strong>
-          <div>- Tốt nghiệp đại học chuyên ngành ngân hàng, tài chính kế toán hoặc các trường Kinh tế; - Hình thức ưa nhìn, tự tin, nhiệt huyết và chu đáo cẩn thận trong cung cấp dịch vụ giao dịch với khách hàng; - Nữ, 1.60m trở lên; - Không dị tật, không nói ngọng, nói lắp;</div>
-        </li>
-        <li> <a href="/huong-nghiep/6-cau-hoi-bat-bai-tinh-cach-ung-vien-nid208.html"><img src="/images/news/208.jpg" alt="6 câu hỏi " bắt="" bài"="" tính="" cách="" ứng="" viên"=""></a> <strong><a href="/huong-nghiep/6-cau-hoi-bat-bai-tinh-cach-ung-vien-nid208.html">6 câu hỏi "bắt bài" tính cách ứng viên</a></strong>
-          <div>Điều nhà tuyển dụng muốn biết là động lực khiến bạn làm việc chăm chỉ, đặc biệt nếu bạn là người tự tin vào khả năng của mình. Họ sẽ không phán xét tham vọng của một người bởi điều đó thuộc về quan điểm cá nhân. Tuy nhiên, bạn cũng cần một chút khéo léo để dẫn dắt câu chuyện, tránh trường hợp khiến mọi người nghĩ bạn là người khắt khe hoặc tự tin thái quá.</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/cam-nang-viec-lam-c111.html">Cảm nang việc làm</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/nu-giam-doc-mat-viec-chi-boi-mot-cau-noi-cua-ong-lao-quet-rac-nid332.html"><img src="/images/news/332.jpg" alt="Nữ giám đốc mất việc chỉ bởi một câu nói của Ông lão quét rác"></a> <strong><a href="/huong-nghiep/nu-giam-doc-mat-viec-chi-boi-mot-cau-noi-cua-ong-lao-quet-rac-nid332.html">Nữ giám đốc mất việc chỉ bởi một câu nói của Ông lão quét rác</a></strong>
-          <div>Một nữ giám đốc cao quý gặp phải một “ông lão quét rác”, lại vì một câu nói của ông mà khiến cho người này mất việc, nguyên do chỉ bởi một thói quen không nên có của con người.</div>
-        </li>
-        <li> <a href="/huong-nghiep/huong-dan-cach-tinh-thue-thu-nhap-ca-nhan-2015-2016-nid331.html"><img src="/images/news/331.jpg" alt="Hướng dẫn cách tính thuế thu nhập cá nhân 2015 - 2016"></a> <strong><a href="/huong-nghiep/huong-dan-cach-tinh-thue-thu-nhap-ca-nhan-2015-2016-nid331.html">Hướng dẫn cách tính thuế thu nhập cá nhân 2015 - 2016</a></strong>
-          <div>Cách tính thuế thu nhập cá nhân Thuế thu nhập cá nhân là gi? - Thuế thu nhập cá nhân là khoản tiền mà người có thu nhập phải nộp một phần tiền lương hoặc từ các nguồn thu nhập khác vào ngân sách nhà nước.</div>
-        </li>
-        <li> <a href="/huong-nghiep/7-cach-dat-cau-hoi-thong-minh-voi-nha-tuyen-dung-nid328.html"><img src="/images/news/328.jpg" alt="7 cách đặt câu hỏi thông minh với nhà tuyển dụng"></a> <strong><a href="/huong-nghiep/7-cach-dat-cau-hoi-thong-minh-voi-nha-tuyen-dung-nid328.html">7 cách đặt câu hỏi thông minh với nhà tuyển dụng</a></strong>
-          <div>“Doanh nghiệp sẽ làm gì nếu…?” Doanh nghiệp nào cũng sẽ có lúc phải đương đầu với những khó khăn, thách thức lớn như thay đổi về công nghệ, sự xuất hiện của đối thủ cạnh tranh mới, thay đổi về xu hướng kinh tế… Những ứng viên tốt luôn xem đây là cơ hội để họ phát huy năng lực của bản thân, cùng phát triển và thành công với doanh nghiệp. ..</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/tieng-anh-xin-viec-c114.html">TIẾNG ANH XIN VIỆC</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/tu-vung-thuong-gap-theo-chu-de-cong-ty-nid90.html"><img src="/images/news/90.jpg" alt="TỪ VỰNG THƯỜNG GẶP THEO CHỦ ĐỀ " cÔng="" ty""=""></a> <strong><a href="/huong-nghiep/tu-vung-thuong-gap-theo-chu-de-cong-ty-nid90.html">TỪ VỰNG THƯỜNG GẶP THEO CHỦ ĐỀ " CÔNG TY"</a></strong>
-          <div></div>
-        </li>
-        <li> <a href="/huong-nghiep/nhung-mau-cau-giao-tiep-hay-va-tu-nhien-nid89.html"><img src="/images/news/89.jpg" alt="NHỮNG MẪU CÂU GIAO TIẾP HAY VÀ TỰ NHIÊN"></a> <strong><a href="/huong-nghiep/nhung-mau-cau-giao-tiep-hay-va-tu-nhien-nid89.html">NHỮNG MẪU CÂU GIAO TIẾP HAY VÀ TỰ NHIÊN</a></strong>
-          <div>1. End the conversation Kết thúc cuộc nói chuyện - Well, It was nice meeting you. I really had a great time. Thật vui khi được gặp anh. Tôi đã có một khoảng thời gian tuyệt vời. ...</div>
-        </li>
-        <li> <a href="/huong-nghiep/tieng-anh-phong-van-xin-viec-ve-nguoi-than-cua-ban-nid88.html"><img src="/images/news/88.jpg" alt="TIẾNG ANH PHỎNG VẤN XIN VIỆC - Về người thân của bạn"></a> <strong><a href="/huong-nghiep/tieng-anh-phong-van-xin-viec-ve-nguoi-than-cua-ban-nid88.html">TIẾNG ANH PHỎNG VẤN XIN VIỆC - Về người thân của bạn</a></strong>
-          <div>A: Have you got married? Anh đã lập gia đình chưa? ...</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/su-kien-ngay-hoi-viec-lam-c115.html">SỰ KIỆN - NGÀY HỘI VIỆC LÀM</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/ngay-hoi-viec-lam-tren-50-dn-can-tuyen-dung-2-000-dau-viec-nid436.html"><img src="/images/news/436.jpg" alt="Ngày hội việc làm , Trên 50 DN cần tuyển dụng 2.000 đầu việc"></a> <strong><a href="/huong-nghiep/ngay-hoi-viec-lam-tren-50-dn-can-tuyen-dung-2-000-dau-viec-nid436.html">Ngày hội việc làm , Trên 50 DN cần tuyển dụng 2.000 đầu việc</a></strong>
-          <div>Tham dự ngày hội, em Phạm Kiều Oanh – sinh viên Trường Đại học Thăng Long (học ngành kế toán) cho hay: “Em đang học năm thứ nhất, nhưng thấy việc tổ chức ngày hội việc làm thế này rất có ý nghĩa. Em và các bạn đến để tham khảo cách tuyển dụng của các DN. Chúng em cần chuẩn bị dần kỹ năng tìm việc cho khi ra trường.</div>
-        </li>
-        <li> <a href="/huong-nghiep/bo-300-trieu-dong-de-chay-viec-chi-la-phan-noi-cua-tang-bang-chim-nid432.html"><img src="/images/news/432.jpg" alt="Bỏ 300 triệu đồng để chạy việc - chỉ là phần nổi của tảng băng chìm"></a> <strong><a href="/huong-nghiep/bo-300-trieu-dong-de-chay-viec-chi-la-phan-noi-cua-tang-bang-chim-nid432.html">Bỏ 300 triệu đồng để chạy việc - chỉ là phần nổi của tảng băng chìm</a></strong>
-          <div>Việc gia đình chị Lê Thị Tuyết (sinh năm 1991, trú tại 47 Tống Duy Tân, phường Lam Sơn, TP. Thanh Hóa), tốt nghiệp Đại học Sân khấu điện ảnh, tố cáo bà Đặng Thị Nhung, cán bộ Chi cục Thuế huyện Đông Sơn (thuộc Cục Thuế Thanh Hóa) có dấu hiệu lừa đảo tiền chạy việc với số tiền lên đến 300 triệu đồng một lần nữa nói lên nhiều điều bất ổn ở một địa phương mà trong thời gian qua đã có quá nhiều những tai tiếng.</div>
-        </li>
-        <li> <a href="/huong-nghiep/sinh-vien-va-nha-tuyen-dung-bat-tay-nhau-tai-“ngay-hoi-viec-lam-2016”-nid431.html"><img src="/images/news/431.jpg" alt="Sinh viên và nhà tuyển dụng bắt tay nhau tại “Ngày hội việc làm 2016”"></a> <strong><a href="/huong-nghiep/sinh-vien-va-nha-tuyen-dung-bat-tay-nhau-tai-“ngay-hoi-viec-lam-2016”-nid431.html">Sinh viên và nhà tuyển dụng bắt tay nhau tại “Ngày hội việc làm 2016”</a></strong>
-          <div>Với sự tham dự của gần 40 doanh nghiệp lớn gồm có Uber, Crowne Plaza, Heineken, CPA, Admicro, Standard Chartered, Alma, K+, British American Tobaco, Ogilvy, Bates Chi and Partners Vietnam, Edelman Vietnam, Ngày hội Việc làm 2016 đã thu hút hơn 700 sinh viên ở cả hai cơ sở Hà Nội và Nam Sài Gòn, trở thành cầu nối hiệu quả giữa sinh viên và các doanh nghiệp.</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/news-24h-c116.html">NEWS 24H</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/nguoi-tre-viet-nen-chon-nganh-gi-de-co-luong-2-000usd-nid452.html"><img src="/images/news/452.jpg" alt="Người trẻ Việt nên chọn ngành gì để có lương 2.000USD?"></a> <strong><a href="/huong-nghiep/nguoi-tre-viet-nen-chon-nganh-gi-de-co-luong-2-000usd-nid452.html">Người trẻ Việt nên chọn ngành gì để có lương 2.000USD?</a></strong>
-          <div>Chương trình đã thu hút đông đảo học sinh, sinh viên và cả những bậc phụ huynh hứng thú tham gia. Chỉ trong ngày này, hơn 100 sinh viên đã được tuyển dụng trực tiếp từ các doanh nghiệp CNTT tại các vị trí thực tập có lương và nhân viên chính thức. Thêm vào đó, rất nhiều doanh nghiệp đã tham gia ký cam kết tuyển dụng sinh viênAPTECH.</div>
-        </li>
-        <li> <a href="/huong-nghiep/google-tuyen-dung-nhan-vien-ky-quac-the-nao-nid433.html"><img src="/images/news/433.jpg" alt="Google tuyển dụng nhân viên kỳ quặc thế nào?"></a> <strong><a href="/huong-nghiep/google-tuyen-dung-nhan-vien-ky-quac-the-nao-nid433.html">Google tuyển dụng nhân viên kỳ quặc thế nào?</a></strong>
-          <div>Tờ Bright Side đã có một góc nhìn hài hước khi giả sử rằng nếu như những định kiến này là sự thật thì các cuộc phỏng vấn tuyển dụng của họ sẽ như thế nào. Dưới đây là một số cuộc phỏng vấn tuyển dụng tưởng tượng đầy hài hước của Bright Side.</div>
-        </li>
-        <li> <a href="/huong-nghiep/lai-lon-nhan-vien-vietcombank-duoc-thuong-tet-sieu-khung-nid372.html"><img src="/images/news/372.jpg" alt="Lãi lớn, nhân viên Vietcombank được thưởng tết siêu khủng"></a> <strong><a href="/huong-nghiep/lai-lon-nhan-vien-vietcombank-duoc-thuong-tet-sieu-khung-nid372.html">Lãi lớn, nhân viên Vietcombank được thưởng tết siêu khủng</a></strong>
-          <div>Như vậy, Vietcombank đã "vượt mặt" đối thủ là Vietinbank về thưởng. Theo thông tin của BizLIVE, năm 2015, Vietinbank sẽ thưởng tết cho nhân viên là 2 tháng lương. Như vậy, với lương bình quân của Vietinbank là 20.169 đồng/tháng, thì mỗi nhân viên sẽ được thưởng hơn 40 triệu đồng. Chưa kể, mỗi chi nhánh còn có thưởng riêng cho từng nhân viên của mình và ngân hàng có thưởng với những chi nhánh, nhân viên hoàn thành xuất sắc kế hoạch năm.</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
-  <div class="boxM grhh" style="">
-    <div class="bg">
-      <div class="t"><a href="/huong-nghiep/tai-lieu-on-thi-c118.html">TÀI LIỆU ÔN THI</a></div>
-      <ul class="list">
-        <li> <a href="/huong-nghiep/de-thi-tuyen-chuyen-vien-quan-he-khach-hang-vao-bidv-nam-2013-nid410.html"><img src="/images/news/410.jpg" alt="Đề thi tuyển Chuyên viên Quan hệ Khách hàng vào BIDV năm 2013"></a> <strong><a href="/huong-nghiep/de-thi-tuyen-chuyen-vien-quan-he-khach-hang-vao-bidv-nam-2013-nid410.html">Đề thi tuyển Chuyên viên Quan hệ Khách hàng vào BIDV năm 2013</a></strong>
-          <div>Mời các bạn tham khảo Đề thi tuyển dụng Chuyên viên Quan hệ Khách hàng vào Ngân hàng Đầu tư và Phát triển Việt Nam – BIDV</div>
-        </li>
-        <li> <a href="/huong-nghiep/de-thi-tuyen-dung-giao-dich-vien-vao-bidv-2013-nid409.html"><img src="/images/news/409.jpg" alt="Đề thi tuyển dụng Giao dịch viên vào BIDV 2013"></a> <strong><a href="/huong-nghiep/de-thi-tuyen-dung-giao-dich-vien-vao-bidv-2013-nid409.html">Đề thi tuyển dụng Giao dịch viên vào BIDV 2013</a></strong>
-          <div>Mời các bạn tham khảo Đề thi tuyển dụng Giao dịch viên KV Hà Nội vào Ngân hàng Đầu tư và Phát triển Việt Nam</div>
-        </li>
-        <li> <a href="/huong-nghiep/tong-hop-118-cau-hoi-hieu-biet-chung-va-iq-–-bidv-2013-nid408.html"><img src="/images/news/408.jpg" alt="Tổng hợp 118 câu hỏi Hiểu biết chung và IQ – BIDV 2013"></a> <strong><a href="/huong-nghiep/tong-hop-118-cau-hoi-hieu-biet-chung-va-iq-–-bidv-2013-nid408.html">Tổng hợp 118 câu hỏi Hiểu biết chung và IQ – BIDV 2013</a></strong>
-          <div>Mời các bạn tham khảo tài liệu Tổng hợp 118 câu hỏi Hiểu biết chung và IQ vào Ngân hàng Đầu tư và Phát triển Việt Nam</div>
-        </li>
-      </ul>
-      <div class="cl"></div>
-    </div>
-  </div>
+<!-- -->  
 </div>
 <div class="FloatLeft W309">
   <div class="bgr2"><strong>Tin mới nhất</strong></div>

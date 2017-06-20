@@ -15,9 +15,7 @@ Route::get('/', 'HomepageController@index');
 Route::get('/register', function () {
     return view('Users/register_user');
 });
-Route::get('/employer', function () {
-    return view('Users/employer');
-});
+
 Route::get('/forgotpass', function () {
     return view('Users/forgotpass');
 });
@@ -33,11 +31,23 @@ Route::get('/users/resume', function () {
 Route::get('/users/savejob', function () {
     return view('Users/savejob');
 });
+//nguoi xin viec
 Route::get('/employee', 'EmployeeController@index');
+//nha tuyen dung
+Route::get('/employer', 'EmploymentsController@index');
+Route::get('/employer/{id}/company', 'EmploymentsController@viewcompany');
+Route::get('/employement/{id}/detail', 'EmploymentsController@detail');
+Route::get('/employement/{id}/career', 'EmploymentsController@viewcareer');//list employment according career
+
 /*Route::get('/news', function () {
 	$articles = DB::table('articles')->latest->get();
    return view('Articles.index',compact('articles'));
-});*/
+});
+Route::get('/employer', function () {
+    return view('Users/employer');
+});
+*/
+Route::get('/category/{id}', 'ArticlesController@category');
 Route::get('/news', 'ArticlesController@index');
 Route::get('/news/{short_url}/view', 'ArticlesController@view');
 /*--------------------*/

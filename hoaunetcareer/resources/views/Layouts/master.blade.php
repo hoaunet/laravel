@@ -26,7 +26,7 @@
   </ul>
   <div style=" background-color:#0C3;">
     <ul class="menu">
-      <li class="home"><a class="ac" href="/"><img src="/images/home.png" alt="icon" /> Trang chủ</a></li>
+      <li class="home"><a class="ac" href="/"><img src="/images/home.png" alt="Trang chủ" /> Trang chủ</a></li>
       <li><a href="/employee" class="" >Cho người tìm việc</a></li>
       <li><a href="/employer" class="" >Cho nhà tuyển dụng</a></li>
       <li><a href="#" class="" >Tuyển dụng nhanh</a></li>
@@ -36,12 +36,12 @@
     <div class="live_chat" onmouseover="javascript:move('all')" onmouseout="javascript:out('all')"> <a href="#"><img src="/images/bgql.gif" alt="live chat" /></a>
       <div style="display:none;" id="all">
         <ul>
-          <li><a href="#"><img src="/images/icon/ql1.gif" alt="icon" />Quản lý tuyển dụng</a></li>
-          <li><a href="#"><img src="/images/icon/ql2.gif" alt="icon" />Tin TD đã đăng</a></li>
-          <li><a href="#"><img src="/images/icon/ql3.gif" alt="icon" />Tạo tin TD mới</a></li>
-          <li><a href="#"><img src="/images/icon/ql4.gif" alt="icon" />Quản lý hồ sơ ứng viên</a></li>
-          <li><a href="#"><img src="/images/icon/ql5.gif" alt="icon" />Phản hồi của NTV</a></li>
-          <li><a href="#"><img src="/images/icon/ql10.gif" alt="icon" />Thông báo của BQT</a></li>
+          <li><a href="#"><img src="/images/icon/ql1.gif" alt="Quản lý tuyển dụng" />Quản lý tuyển dụng</a></li>
+          <li><a href="#"><img src="/images/icon/ql2.gif" alt="Tin TD đã đăng" />Tin TD đã đăng</a></li>
+          <li><a href="#"><img src="/images/icon/ql3.gif" alt="Tạo tin TD mới" />Tạo tin TD mới</a></li>
+          <li><a href="#"><img src="/images/icon/ql4.gif" alt="Quản lý hồ sơ ứng viên" />Quản lý hồ sơ ứng viên</a></li>
+          <li><a href="#"><img src="/images/icon/ql5.gif" alt="Phản hồi của NTV" />Phản hồi của NTV</a></li>
+          <li><a href="#"><img src="/images/icon/ql10.gif" alt="Thông báo của BQT" />Thông báo của BQT</a></li>
         </ul>
       </div>
     </div>

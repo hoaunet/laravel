@@ -31,8 +31,10 @@ class ArticlesController extends Controller
     {
         //
 		$articles = Article::paginate(15);
-		
-		return view('Articles.index',compact('articles'));
+		/*$catagories = Category::find(1);
+		$catagories->articles()->where('isactive', 1)->get();*/
+		$catagories = Category::withCount('articles')->get();
+		return view('Articles.index',compact('articles','catagories'));
     }
 	
 	/**
@@ -50,6 +52,17 @@ class ArticlesController extends Controller
 		$articles_new = Article::where('isactive', '=', '1')->orderBy('created', 'desc')->get();
 		$articles_hot = Article::where('ishot', '=', '1')->get();						
 		return view('Articles.view',compact('articles','articles_new','articles_hot'));
+    }
+	/**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category($id=null)
+    {
+        $catagories = Category::withCount('articles')->get();
+		$articles =Article::where('category_id',$id)->with('category')->get();						
+		return view('Articles.category',compact('articles','catagories'));
     }
 
     /**

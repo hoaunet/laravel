@@ -788,21 +788,19 @@
   
     <ul class="vipr">
         <li class="search">
-            @foreach($languages as $language)
-            <a href="#">{{$language->name}}</a>
-            @endforeach
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=1">Tiếng Anh (England)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=2">Tiếng Pháp (France)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=3">Tiếng Hàn Quốc (Korea)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=4">Tiếng Nhật Bản (Japan)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=6">Tiếng Trung Quốc (China)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=7">Tiếng Nga (Russia)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=8">Tiếng Đức (Germany)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=9">Thái Lan (Thailand)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=10">Tiếng Mã Lai (Malaysia)</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=11">Indonesia</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=12">Tiếng Ả Rập </a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=13">Myanmar</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=14">Tiếng Hindi Hoặc Bengali</a><a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=0&amp;w=15">Ngôn Ngữ Khác</a>
         </li>
     </ul>      
     
     <div class="bgr2 mtop"><strong>Tìm việc làm theo tính chất</strong></div>
     <ul class="vipr">
         <li class="search">
-            <a href="#">Việc làm lương từ 30 triệu trở lên</a>
-            <a href="#">Việc làm lương từ 20 - 30 triệu</a>
-            <a href="#">Việc làm lương từ 15 -20 triệu</a>
-            <a href="#">Việc làm lương từ 10 - 15 triệu</a>
-            <a href="#">Việc làm cấp quản lý</a>
-            <a href="#">Việc làm bán thời gian</a>
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=9">Việc làm lương từ 30 triệu trở lên</a>
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=8">Việc làm lương từ 20 - 30 triệu</a>
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=7">Việc làm lương từ 15 -20 triệu</a>
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=&amp;n=Tất cả&amp;d=0&amp;l=6">Việc làm lương từ 10 - 15 triệu</a>
+            <a href="/nguoi-tim-viec/tim-kiem-viec-lam-nhanh-c0.html?key=quan ly&amp;n=Tất cả&amp;d=0&amp;l=0">Việc làm cấp quản lý</a>
+            <a href="/nguoi-tim-viec/lam-ban-thoi-gian-c103.html">Việc làm bán thời gian</a>
             <a href="/nguoi-tim-viec/thuc-tap-c107.html">Việc làm cho sinh viên thực tập, mới tốt nghiệp</a>
         </li>
     </ul> 

@@ -23,6 +23,8 @@
       <div id="___plus_0" ></div>
     </li>
   </ul>
+  <form  name="search_employment" method="post" action="/employement/search">
+  {{ csrf_field() }}
   <ul>
     <li class="s1">
       <input name="txtS1" type="text" id="txtS1" placeholder="Nhập tiêu đề công việc, tên NTD, địa điểm để tìm kiếm">
@@ -58,6 +60,7 @@
       <input type="image" name="btnS" id="btnS" src="/images/n0.gif" style="border-width:0px;">
     </li>
   </ul>
+  </form>
 </div>
 <div class="boxM">
   <div class="bg">
@@ -87,8 +90,8 @@
   @foreach($employments as $employment)
 
   <div class="list_tg">
-    <div class="bor1"> <strong><a class="red1" href="#">{{$employment->title}} </a></strong>
-      <p><a href="/employement/{{$employment->id}}/detail">{{$employment->name}} </a></p>
+    <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment->id}}/detail">{{$employment->title}} </a></strong>
+      <p><a href="/employer/{{$employment->id}}/company">{{$employment->name}} </a></p>
     </div>
   </div>
   @endforeach
@@ -127,7 +130,7 @@
     @foreach($employment_hots as $employment_hot)
       <div class="list_tg">
         <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment_hot->id}}/detail">{{$employment_hot->title}}</a></strong>
-          <p><a href="/employement/{{$employment_hot->id}}/detail">{{$employment_hot->name}} </a></p>
+          <p><a href="/employer/{{$employment_hot->company_id}}/company">{{$employment_hot->name}} </a></p>
         </div>
       </div>
       @endforeach    
@@ -135,7 +138,7 @@
   </div>
   <div class="bgt" style="margin-top:15px;">
     <div>
-      <select name="drpC" id="drpC" onchange="javascript:worknew('#workn')">
+      <select name="drpC" id="drpC" onchange="">
         <option value="--Tất cả--">--Tất cả--</option>
          <option value="Tất cả địa điểm">Tất cả địa điểm</option>
              @if(count($provinces) >0)
@@ -147,16 +150,16 @@
     </div>
     <strong>Việc làm mới nhất</strong> </div>
   <div id="workn">
-    <div class="box_tg">
-      <div class="list_tg" style="width:330px;">
+    <div class="box_tg">      
       @foreach($employments as $employment)
+      <div class="list_tg" style="width:330px;">
       <div class="">
         <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment->id}}/detail">{{$employment->title}} <span style="font-weight:normal; color:Red;">(Mới)</span></a></strong>
-          <p><a href="/employement/{{$employment->id}}/detail">{{$employment->name}} </a></p>
+          <p><a href="/employer/{{$employment->company_id}}/company">{{$employment->name}} </a></p>
         </div>
       </div>
-      @endforeach        
       </div>
+      @endforeach   
       
       <div class="cl"></div>
     </div>
@@ -264,8 +267,12 @@
             <div style="width: 255px; height: 360px; top: 0px; left: 0px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0;"></div>
             <div debug-id="slide-0" style="width: 255px; height: 360px; top: 0px; left: 0px; position: absolute; overflow: hidden; transform: perspective(2000px);">
                 @foreach($articles as $article)
-              <div class="list_newr" style="transform: perspective(2000px);"><a class="img" href="/huong-nghiep/cam-nang-tuyen-dung-viec-lam-voi-nguoi-nhat-nid259.html" style="transform: perspective(2000px);"><img src="/images/news/259.jpg" alt="Cẩm nang tuyển dụng việc làm với người Nhật" style="transform: perspective(2000px);"></a><strong style="transform: perspective(2000px);"><a href="/huong-nghiep/cam-nang-tuyen-dung-viec-lam-voi-nguoi-nhat-nid259.html" style="transform: perspective(2000px);">{{ $article->title}}</a></strong>
-                <p style="transform: perspective(2000px);">{{ $article->short_url}}</p>
+              <div class="list_newr" style="transform: perspective(2000px);">
+                 @if($article->articles_image !='')
+                <a class="img" href="/news/{{$article->short_url}}/view" style="transform: perspective(2000px);">
+                <img src="/uploads/{{$article->articles_image}}" alt="{{ $article->title}}" style="transform: perspective(2000px);"></a>
+                @endif<strong style="transform: perspective(2000px);"><a href="/news/{{$article->short_url}}/view" style="transform: perspective(2000px);">{{ $article->title}}</a></strong>
+                <p style="transform: perspective(2000px);">{{ $article->short_desc}}</p>
               </div>
               @endforeach
               

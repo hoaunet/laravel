@@ -38,7 +38,7 @@ Route::get('/employer', 'EmploymentsController@index');
 Route::get('/employer/{id}/company', 'EmploymentsController@viewcompany');
 Route::get('/employement/{id}/detail', 'EmploymentsController@detail');
 Route::get('/employement/{id}/career', 'EmploymentsController@viewcareer');//list employment according career
-
+Route::post('/employement/search', 'EmploymentsController@searchemployment');
 /*Route::get('/news', function () {
 	$articles = DB::table('articles')->latest->get();
    return view('Articles.index',compact('articles'));

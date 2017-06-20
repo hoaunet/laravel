@@ -57,6 +57,22 @@ class EmploymentsController extends Controller
         $employments    = Employment::where('career_id',$id)->get();
         return view('Employment/career',compact('careers','provinces','salaries','articles','employments'));
     }
+	public function searchemployment(Request $request)
+    {
+	/*   $employments = DB::table('companyusers')
+            ->join('employments', 'companyusers.id', '=', 'employments.company_id')
+            ->join('companies', 'companies.id', '=', 'companyusers.company_id')
+            ->select('companies.*', 'employments.*', 'companyusers.user_id');
+		if(){
+	
+		}	
+    */    $careers        = Career::where('status', '=', '1')->orderBy('career_name', 'asc')->get();
+        $provinces      = Province::where('status', '=', '1')->orderBy('province_name', 'asc')->get();
+        $salaries       = Salary::where('is_active', '=', '1')->orderBy('name', 'asc')->get();
+        $articles       = Article::where([['isactive', '=', '1'],['category_id', '=', '3']])->orderBy('created', 'desc')->get();
+        $employments    = Employment::where('career_id',3)->get();
+        return view('Employment/career',compact('careers','provinces','salaries','articles','employments'));
+    }
 	public function viewcompany($id=null)
 	{
 		dd($id);

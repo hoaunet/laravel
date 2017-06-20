@@ -11,5 +11,9 @@ class Company extends Model
     {
         return $this->hasMany('App\Companyuser');
     }
+    public function companysizes()
+    {
+        return $this->belongsTo('App\Companysize');
+    }
     
 }

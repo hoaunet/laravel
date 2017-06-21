@@ -91,7 +91,7 @@
 
   <div class="list_tg">
     <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment->id}}/detail">{{$employment->title}} </a></strong>
-      <p><a href="/employer/{{$employment->id}}/company">{{$employment->name}} </a></p>
+      <p><a href="/employer/{{$employment->companyuser_id}}/company">{{$employment->name}} </a></p>
     </div>
   </div>
   @endforeach
@@ -130,7 +130,7 @@
     @foreach($employment_hots as $employment_hot)
       <div class="list_tg">
         <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment_hot->id}}/detail">{{$employment_hot->title}}</a></strong>
-          <p><a href="/employer/{{$employment_hot->company_id}}/company">{{$employment_hot->name}} </a></p>
+          <p><a href="/employer/{{$employment_hot->companyuser_id}}/company">{{$employment_hot->name}} </a></p>
         </div>
       </div>
       @endforeach    
@@ -155,7 +155,7 @@
       <div class="list_tg" style="width:330px;">
       <div class="">
         <div class="bor1"> <strong><a class="red1" href="/employement/{{$employment->id}}/detail">{{$employment->title}} <span style="font-weight:normal; color:Red;">(Mới)</span></a></strong>
-          <p><a href="/employer/{{$employment->company_id}}/company">{{$employment->name}} </a></p>
+          <p><a href="/employer/{{$employment->companyuser_id}}/company">{{$employment->name}} </a></p>
         </div>
       </div>
       </div>

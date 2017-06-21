@@ -55,3 +55,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/articles/{id}/edit',  'ArticlesController@edit');
 });
 
+Auth::routes();
+
+

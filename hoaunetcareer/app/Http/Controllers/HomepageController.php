@@ -12,9 +12,14 @@ use App\Article;
 use App\Employment;
 use App\Company;
 
+
 class HomepageController extends Controller
 {
     //
+    public function __construct()
+    {
+        //$this->middleware('auth');
+    }
 	public function index()
     {
         //
@@ -26,12 +31,12 @@ class HomepageController extends Controller
         $articles   	   = Article::where([['isactive', '=', '1'],['category_id', '=', '3']])->orderBy('created', 'desc')->get();
 
         $employment_hots = DB::table('companyusers')
-            ->join('employments', 'companyusers.id', '=', 'employments.company_id')
+            ->join('employments', 'companyusers.id', '=', 'employments.companyuser_id')
             ->join('companies', 'companies.id', '=', 'companyusers.company_id')
             ->select('companies.*', 'employments.*', 'companyusers.user_id')->where('ishot', '=', '1')
             ->get();
 		$employments = DB::table('companyusers')
-            ->join('employments', 'companyusers.id', '=', 'employments.company_id')
+            ->join('employments', 'companyusers.id', '=', 'employments.companyuser_id')
             ->join('companies', 'companies.id', '=', 'companyusers.company_id')
             ->select('companies.*', 'employments.*', 'companyusers.user_id')->orderBy('employments.created', 'desc')
             ->get();	

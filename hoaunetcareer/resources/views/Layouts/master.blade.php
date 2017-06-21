@@ -9,20 +9,39 @@
 <div id="contain">
   <ul class="head">
     <li class="l"><a href="/"><img src="/images/logo_s3s_career.jpg" alt="Logo" /></a></li>
-    <!--<li class="r">        
+    @if (Route::has('login'))     
+      @if (Auth::check())
+        <li class="r">        
           <ul class="user_info">
-            <li class="t"><b>Xin chào: Lê Hoa</b>Thoát</li>
+            <li class="t"><b>Xin chào: {{ Auth::user()->username }}</b>Thoát</li>
             <li class="d">
-              <div style="padding-top:5px; padding-bottom:5px;"><span id="head_lblBal" class="cblack">Bạn đang có: <span class="cred"><b>0</b>đ</span> (<a href="http://tuyendungvietnam.com.vn/ntv_naptien.aspx?id=16598">nạp tiền</a>)</span></div>
+              <div style="padding-top:5px; padding-bottom:5px;"><span id="head_lblBal" class="cblack">Bạn đang có: <span class="cred"><b>0</b>đ</span> (<a href="#">nạp tiền</a>)</span></div>
               •<a href="#"> Thông tin cá nhân</a>&nbsp;&nbsp; • <a href="#">Hồ sơ đã đăng</a> </li>
           </ul>
         </li>-->
-    <li class="r">
-      <input type="image" name="" id="head_btnLogin" class="img" src="/images/btnLogin.png" style="border-width:0px;" />
-      <input name="head$txtUser" type="text" id="head_txtUser" class="txt" ValidationGroup="login" placeholder="Email đăng nhập" />
-      <input name="head$txtPass" type="password" id="head_txtPass" class="txt" ValidationGroup="login" placeholder="Mật khẩu" />
-      <div class="t"><a href="javascript:void(0)" onclick="customer('dk','Đăng ký tài khoản'); return false;">Đăng ký</a><span>|</span><a href="/repass.aspx">Quên mật khẩu</a></div>
-    </li>
+      @else    
+      <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+      <li class="r">
+        <input type="image" name="" id="head_btnLogin" class="img" src="/images/btnLogin.png" style="border-width:0px;" />
+        <input id="email" type="email" name="email" value="{{ old('email') }}" required class="txt" ValidationGroup="login" placeholder="Email đăng nhập" />
+         @if ($errors->has('email'))
+            <span class="help-block">
+                <strong>{{ $errors->first('email') }}</strong>
+            </span>
+        @endif    
+        <input id="password" type="password" name="password" class="txt" ValidationGroup="login" placeholder="Mật khẩu" required/>
+        @if ($errors->has('password'))
+            <span class="help-block">
+                <strong>{{ $errors->first('password') }}</strong>
+            </span>
+        @endif
+        <div class="t"><a href="{{ url('/register') }}">Đăng ký</a><span>|</span><a href="{{ route('password.request') }}">Quên mật khẩu</a></div>
+      </li>
+      </form>
+
+      @endif
+    @endif
   </ul>
   <div style=" background-color:#0C3;">
     <ul class="menu">

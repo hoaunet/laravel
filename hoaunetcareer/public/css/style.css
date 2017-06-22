@@ -38,7 +38,7 @@ ul.head li.c small b{ color:#d72022;}
 ul.head li.r{ width:400px; overflow:hidden; float:right; text-align:right; padding-top:14px;}
 ul.head li.r .img,div.poplog .img{ float:right;}
 ul.head li.r input.txt,div.poplog input.txt{ display:block; float:right; border:1px #d3d3d3 solid; color:#9c9c9c; padding:0 5px; margin:0 2px 6px 10px; height:21px;}
-ul.head li.r div.t{ color:#9cce5f; font-weight:bold; padding-top:35px;}
+ul.head li.r div.t{ color:#9cce5f; font-weight:bold; padding-top:0px;}
 ul.head li.r span{ padding:0 5px; color:#9cce5f;}
 
 ul.head li.ms{ width:326px; float:left; overflow:hidden; line-height:150%; text-align:center;}

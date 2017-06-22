@@ -13,29 +13,40 @@
       @if (Auth::check())
         <li class="r">        
           <ul class="user_info">
-            <li class="t"><b>Xin chào: {{ Auth::user()->username }}</b>Thoát</li>
+            <li class="t"><b>Xin chào: {{ Auth::user()->username }}</b> <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Thoát
+                                        </a> <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
             <li class="d">
               <div style="padding-top:5px; padding-bottom:5px;"><span id="head_lblBal" class="cblack">Bạn đang có: <span class="cred"><b>0</b>đ</span> (<a href="#">nạp tiền</a>)</span></div>
               •<a href="#"> Thông tin cá nhân</a>&nbsp;&nbsp; • <a href="#">Hồ sơ đã đăng</a> </li>
           </ul>
-        </li>-->
+        </li>
       @else    
       <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                        {!! csrf_field() !!}
       <li class="r">
+
         <input type="image" name="" id="head_btnLogin" class="img" src="/images/btnLogin.png" style="border-width:0px;" />
         <input id="email" type="email" name="email" value="{{ old('email') }}" required class="txt" ValidationGroup="login" placeholder="Email đăng nhập" />
-         @if ($errors->has('email'))
-            <span class="help-block">
+         
+        <input id="password" type="password" name="password" class="txt" ValidationGroup="login" placeholder="Mật khẩu" required/>
+        
+        <div style =" height: 40px;">
+        @if ($errors->has('email'))
+            <span class="help-block" >
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
         @endif    
-        <input id="password" type="password" name="password" class="txt" ValidationGroup="login" placeholder="Mật khẩu" required/>
-        @if ($errors->has('password'))
-            <span class="help-block">
+          @if ($errors->has('password'))
+            <span class="help-block" style=" width:200px; padding-left: -50px">
                 <strong>{{ $errors->first('password') }}</strong>
             </span>
         @endif
+        </div>
         <div class="t"><a href="{{ url('/register') }}">Đăng ký</a><span>|</span><a href="{{ route('password.request') }}">Quên mật khẩu</a></div>
       </li>
       </form>

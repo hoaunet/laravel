@@ -38,7 +38,7 @@ class HomepageController extends Controller
 		$employments = DB::table('companyusers')
             ->join('employments', 'companyusers.id', '=', 'employments.companyuser_id')
             ->join('companies', 'companies.id', '=', 'companyusers.company_id')
-            ->select('companies.*', 'employments.*', 'companyusers.user_id')->orderBy('employments.created', 'desc')
+            ->select('companies.*', 'employments.*', 'companyusers.user_id')->orderBy('employments.created_at', 'desc')
             ->get();	
        /* $employments    = Employment::with(['votes', 'comments' => function ($query) {
 								    $query->where('content', 'like', 'foo%');

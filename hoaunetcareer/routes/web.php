@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/login', function () {
-    dd($data);
-});
+
 Auth::routes();
 
 Route::get('/', 'HomepageController@index');

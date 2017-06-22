@@ -1,25 +1,25 @@
 @extends('layouts.master')
 @section('title', $employments->title)
 @section('content')
-<?php print_r($employments);?>
+<?php //echo "<pre>";print_r($employment_detail);echo "</pre>";?>
 <ul class="box_admin2">
-    <li><a href="#">Quản lý tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">Hồ sơ đã đăng</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">Tạo HS tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">VL đã lưu</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">VL đã ứng tuyển</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">NTD của tôi</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">NTD đã xem hồ sơ</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">HS cá nhân (CV)</a></li>
-    <li><span>|</span></li>
-    <li><a href="#">Thông báo</a></li>
+  <li><a href="#">Quản lý tìm việc</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">Hồ sơ đã đăng</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">Tạo HS tìm việc</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">VL đã lưu</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">VL đã ứng tuyển</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">NTD của tôi</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">NTD đã xem hồ sơ</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">HS cá nhân (CV)</a></li>
+  <li><span>|</span></li>
+  <li><a href="#">Thông báo</a></li>
 </ul>
 <div class="adtop"><a href="/" target="_blank"><img src="/uploads/banners/homepage.JPG" alt="Banner top"></a></div>
 <div class="bgs">
@@ -36,31 +36,46 @@
     <li class="s1">
       <input name="txtS1" type="text" id="txtS1" placeholder="Nhập tiêu đề công việc, tên NTD, địa điểm để tìm kiếm">
     </li>
-    <li class="s2"><select name="drpNganhNghe" id="drpNganhNghe">
-                    <option value="Tất cả ngành nghề">Tất cả ngành nghề</option>
+    <li class="s2">
+      <select name="drpNganhNghe" id="drpNganhNghe">
+        <option value="Tất cả ngành nghề">Tất cả ngành nghề</option>
+        
                     @if(count($careers) >0)
                       @foreach($careers as $career)
-                        <option value="{{$career->id}}">{{$career->career_name}}</option> 
+                        
+        <option value="{{$career->id}}">{{$career->career_name}}</option>
+         
                       @endforeach
                    @endif
-                     </select>     
-    </li>
-    <li class="s3"><select name="drpDiaDiem" id="drpDiaDiem">
-                            <option value="Tất cả địa điểm">Tất cả địa điểm</option>
-                     @if(count($provinces) >0)
-                      @foreach($provinces as $province)
-                        <option value="{{$province->id}}">{{$province->province_name}}</option> 
-                      @endforeach
-                    @endif
+                     
       </select>
     </li>
-    <li class="s4"><select name="drpMucLuong" id="drpMucLuong">
-                        <option value="Tất cả mức lương">Tất cả mức lương</option>
-                    @if(count($salaries) >0)
-                      @foreach($salaries as $salarie)
-                        <option value="{{$salarie->id}}">{{$salarie->name}}</option> 
+    <li class="s3">
+      <select name="drpDiaDiem" id="drpDiaDiem">
+        <option value="Tất cả địa điểm">Tất cả địa điểm</option>
+        
+                     @if(count($provinces) >0)
+                      @foreach($provinces as $province)
+                        
+        <option value="{{$province->id}}">{{$province->province_name}}</option>
+         
                       @endforeach
                     @endif
+      
+      </select>
+    </li>
+    <li class="s4">
+      <select name="drpMucLuong" id="drpMucLuong">
+        <option value="Tất cả mức lương">Tất cả mức lương</option>
+        
+                    @if(count($salaries) >0)
+                      @foreach($salaries as $salarie)
+                        
+        <option value="{{$salarie->id}}">{{$salarie->name}}</option>
+         
+                      @endforeach
+                    @endif
+      
       </select>
     </li>
     <li class="s5">
@@ -69,223 +84,191 @@
   </ul>
 </div>
 <div class="ctl">
-     
-    
-    <input type="hidden" name="checkedvalues" id="checkedvalues" value="0">	
-    <input type="hidden" name="dang_luu_ho_so" id="dang_luu_ho_so" value="">    
-    <div style=" clear:both; float:right; padding:10px 0;"></div>
-    
-    
-    <div class="box_ct_ntd">
-        <div class="tieu_de">
-            <a href="#"><img src="/images/nop-ho-so.gif" alt="icon"></a>
-            <h1>{{$employments->title}}</h1>
-        </div>
-        <ul class="ngay">
-            <li>Lượt xem: <b>165</b></li><li>Mã: <b>{{$employments->code}}</b></li><li>Ngày làm mới: <b>13/04/2017</b></li>
-        </ul>
-        <div class="rggt2"><b>Thông tin tuyển dụng</b></div>
-        <table cellpadding="0" cellspacing="0" class="tb_ct">
-            <tbody><tr>
-                <td class="col1"><div style="width:165px;">Vị trí tuyển dụng</div></td>
-                <td class="col2 pd">{{$employments->title}}</td>
-            </tr>
-            <tr>
-                <td class="col1"><div style="width:165px;">Chức vụ</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l">Nhân viên</td><td class="c">Số năm kinh nghiệm</td><td class="r">Chưa có kinh nghiệm</td></tr>
-                    </tbody></table>
-                </td>
-            </tr>            
-            <tr>
-                <td class="col1"><div style="width:165px;">Nghành nghề</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l"> Bộ phận bồi bàn, Sinh viên làm thêm</td><td class="c">Yêu cầu bằng cấp</td><td class="r">Không yêu cầu</td></tr>
-                    </tbody></table>
-                </td>
-            </tr>     
-            <tr>
-                <td class="col1"><div style="width:165px;">Hình thức làm việc</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l">Bán thời gian cố định</td><td class="c">Yêu cầu giới tính</td><td class="r">Không yêu cầu</td></tr>
-                    </tbody></table>
-                </td>
-            </tr>    
-            <tr>
-                <td class="col1"><div style="width:165px;">Địa điểm làm việc</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l"> TP.HCM</td><td class="c">Yêu cầu độ tuổi</td><td class="r">18~30</td></tr>
-                    </tbody></table>
-                </td>
-            </tr>          
-            <tr>
-                <td class="col1"><div style="width:165px;">Mức lương</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l">1 - 3 triệu</td><td class="c">Số lượng cần tuyển</td><td class="r">30</td></tr>
-                    </tbody></table>
-                </td>
-            </tr>
-            <tr>
-                <td class="col1"><div style="width:165px;">Ngoại ngữ</div></td>
-                <td class="col2 pd"></td>
-            </tr>              
-            <tr>
-                <td class="col1"><div style="width:165px;">Mô tả công việc</div></td>
-                <td class="col2 pd lh">{{$employments->summary}}</td>
-            </tr>                                           
-            <tr>
-                <td class="col1"><div style="width:165px;">Quyền lợi được hưởng</div></td>
-                <td class="col2 pd lh">{{$employments->benefit}}<br></td>
-            </tr>               
-            <tr>
-                <td class="col1"><div style="width:165px;">Yêu cầu khác</div></td>
-                <td class="col2 pd lh">{{$employments->other_require}}<br></td>
-            </tr>              
-            <tr>
-                <td class="col1"><div style="width:165px;">Hồ sơ bao gồm</div></td>
-                <td class="col2 pd lh">CMND photo<br>Sơ yếu lí lịch<br>Đơn xin việc</td>
-            </tr>             
-            <tr>
-                <td class="col1"><div style="width:165px;">Hạn nộp hồ sơ</div></td>
-                <td class="col2 pd"><b style="color:Red;">30/04/2017</b></td>
-            </tr>             
-            <tr>
-                <td class="col1"><div style="width:165px;">Hình thức nộp hồ sơ</div></td>
-                <td class="col2">
-                    <table cellpadding="0" cellspacing="0">
-                        <tbody><tr><td class="l">Trực tiếp</td><td class="c" style="border:none;">&nbsp;</td><td class="r"><a href="/ntv-nop-ho-so-truc-tuyen-id14877.html"><img src="/images/icon/nop-ho-so.gif" alt="icon"></a></td></tr>
-                    </tbody></table>                    
-                </td>
-            </tr>             
-        </tbody></table>
-        <div class="chuc_nang">
-            <a href="javascript:luu_tin();" class="r"><img src="/images/save.gif" alt="icon">Lưu tin</a>
-            <a href="#"><img src="/images/mail.gif" alt="icon">Gửi bạn bè</a>
-            <a href="javascript:in_viec_lam();"><img src="/images/print.gif" alt="icon">In tin này</a>
-            <a href="#"><img src="/images/tocao.gif" alt="icon">Tố cáo</a>
-        </div>    
-        <div class="chuc_nang" style="padding:0 0 15px 0;">
-            <a href="#" class="r"><b>&gt;&gt; Xem thêm</b></a>
-            <a href="#" style="color:Red; font-weight:bold;"><img src="/images/icon/canh_bao.gif" alt="icon">Người tìm việc cảnh giác khi có bất kỳ yêu cầu thu phí từ phía nhà tuyển dụng</a>
-        </div>    
-        <div class="rggt2"><b>Thông tin liên hệ</b></div>
-        
-        <div id="rptChitiet_ctl00_pnlNotLH">
-	
-            <div style="padding:10px; line-height:20px; color:Red;">
-                <i>Bạn phải đăng ký tài khoản Ứng viên để xem thông tin chi tiết về tuyển dụng <b>NHÂN VIÊN PHỤC VỤ TIỆC</b> này - Đăng ký tài khoản Ứng viên Miễn phí <a href="/ntv-dang-ky.aspx"><b>tại đây</b></a></i>
-            </div>        
-        
-</div>
-        
-        <div class="rggt2"><b>Thông tin nhà tuyển dụng</b></div>
-        
-        <table cellpadding="0" cellspacing="0" class="tb_ct">
-            <tbody><tr>
-                <td class="col1"><div style="width:165px;">Tên công ty</div></td>
-                <td class="col2 pd">{{$employments->name}}</td>
-            </tr>          
-            <tr>
-                <td class="col1"><div style="width:165px;">Địa chỉ</div></td>
-                <td class="col2 pd">{{$employments->address}}</td>
-            </tr>              
-            <tr>
-                <td class="col1"><div style="width:165px;">Website</div></td>
-                <td class="col2 pd">{{$employments->website}}</td>
-            </tr>             
-            <tr>
-                <td class="col1"><div style="width:165px;">Điện thoại</div></td>
-                <td class="col2 pd">{{$employments->contact_phone}}</td>
-            </tr>    
-            <tr>
-                <td class="col1">
-                    <div style="width:165px;">
-                        Giới thiệu
-                        <div style="text-align:center;">@if($employments->logo !='')
-                        <img src="/images/{{$employments->logo}}" alt="{{$employments->name}}" style="max-width:120px;">
-                        @endif
-                        </div>
-                        <div style="text-align:center;"></div>
-                    </div>
-                </td>
-                <td class="col2 pd lh">{{$employments->descriptions}}</td>
-            </tr>           
-            <tr>
-                <td class="col1"><div style="width:165px;">Quy mô công ty</div></td>
-                <td class="col2 pd">Từ 10 - 24 nhân viên</td>
-            </tr>               
-        </tbody></table>                        
-           
+  <input type="hidden" name="checkedvalues" id="checkedvalues" value="0">
+  <input type="hidden" name="dang_luu_ho_so" id="dang_luu_ho_so" value="">
+  <div style=" clear:both; float:right; padding:10px 0;"></div>
+  <div class="box_ct_ntd">
+    <div class="tieu_de"> <a href="#"><img src="/images/nop-ho-so.gif" alt="icon"></a>
+      <h1>{{$employments->title}}</h1>
     </div>
-    <input type="checkbox" id="chk_item0" class="case" checked="checked" name="chk_item[]" style="display:none;" value="14877">
-    <input type="hidden" name="tong_tin" id="tong_tin" value="1">
-    <div class="chuc_nang"> <a href="/employer/{{$employments->id}}/company" class="r"><b>&gt;&gt; Xem đầy đủ thông tin về công ty này</b></a></div>
-    <div class="chia_se">
-        <strong>Gửi và chia sẻ thông tin việc làm <u>Nhân viên chăm sóc khách hàng</u> qua</strong>
-        <div class="fb-like fb_iframe_widget" </div>
-        <div class="gcong"></div>
-        <div id="___plus_1" ></div>   
+    <ul class="ngay">
+      <li>Lượt xem: <b>165</b></li>
+      <li>Mã: <b>{{$employments->code}}</b></li>
+      <li>Ngày làm mới: <b>{{ date('F d, Y', strtotime($employments->created_at)) }}</b></li>
+    </ul>
+    <div class="rggt2"><b>Thông tin tuyển dụng</b></div>
+    <table cellpadding="0" cellspacing="0" class="tb_ct">
+      <tbody>
+        <tr>
+          <td class="col1"><div style="width:165px;">Vị trí tuyển dụng</div></td>
+          <td class="col2 pd">{{$employments->title}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Chức vụ</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l">{{$employment_detail->career_name}}</td>
+                  <td class="c">Số năm kinh nghiệm</td>
+                  <td class="r">{{$employment_detail->experiences_name}}</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Nghành nghề</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l"> {{$employment_detail->career_name}}</td>
+                  <td class="c">Yêu cầu bằng cấp</td>
+                  <td class="r"> {{$employment_detail->degree_name}}</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Hình thức làm việc</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l">{{$employment_detail->typework_name}}</td>
+                  <td class="c">Yêu cầu giới tính</td>
+                  <td class="r">{{($employments->isgender==1)?'Nam':'Nữ'}}</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Địa điểm làm việc</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l">{{$employment_detail->province_name}}</td>
+                  <td class="c">Yêu cầu độ tuổi</td>
+                  <td class="r">{{$employments->age}}</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Mức lương</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l">{{$employment_detail->salary_name}}<</td>
+                  <td class="c">Số lượng cần tuyển</td>
+                  <td class="r">{{$employments->numrequire}}</td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Ngoại ngữ</div></td>
+          <td class="col2 pd">{{$employment_detail->language_name}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Mô tả công việc</div></td>
+          <td class="col2 pd lh">{{$employments->summary}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Quyền lợi được hưởng</div></td>
+          <td class="col2 pd lh">{{$employments->benefit}}<br></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Yêu cầu khác</div></td>
+          <td class="col2 pd lh">{{$employments->other_require}}<br></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Hồ sơ bao gồm</div></td>
+          <td class="col2 pd lh">{{$employments->record_include}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Hạn nộp hồ sơ</div></td>
+          <td class="col2 pd"><b style="color:Red;">{{ date('F d, Y', strtotime($employments->expire_day)) }}</b></td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Hình thức nộp hồ sơ</div></td>
+          <td class="col2"><table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td class="l">{{$employments->form_apply}}</td>
+                  <td class="c" style="border:none;">&nbsp;</td>
+                  <td class="r"><a href="#"><img src="/images/nop-ho-so.gif" alt="icon"></a></td>
+                </tr>
+              </tbody>
+            </table></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="chuc_nang"> <a href="javascript:luu_tin();" class="r"><img src="/images/save.gif" alt="icon">Lưu tin</a> <a href="#"><img src="/images/mail.gif" alt="icon">Gửi bạn bè</a> <a href="javascript:in_viec_lam();"><img src="/images/print.gif" alt="icon">In tin này</a> <a href="#"><img src="/images/tocao.gif" alt="icon">Tố cáo</a> </div>
+    <div class="chuc_nang" style="padding:0 0 15px 0;"> <a href="#" class="r"><b>&gt;&gt; Xem thêm</b></a> <a href="#" style="color:Red; font-weight:bold;"><img src="/images/canh_bao.gif" alt="icon">Người tìm việc cảnh giác khi có bất kỳ yêu cầu thu phí từ phía nhà tuyển dụng</a> </div>
+    <div class="rggt2"><b>Thông tin liên hệ</b></div>
+    <div id="rptChitiet_ctl00_pnlNotLH">
+      <div style="padding:10px; line-height:20px; color:Red;"> <i>Bạn phải đăng ký tài khoản Ứng viên để xem thông tin chi tiết về tuyển dụng <b>NHÂN VIÊN PHỤC VỤ TIỆC</b> này - Đăng ký tài khoản Ứng viên Miễn phí <a href="#"><b>tại đây</b></a></i> </div>
     </div>
-    <div class="chuc_nang"><a class="red" href="/employement/{{$employments->career_id}}/career"><b>&lt;&lt; Quay lại Ngành nghề</b></a> <a href="/nguoi-tim-viec.html" class="r"><b>Quay về trang việc làm &gt;&gt;</b></a></div>    
-    <div class="fb-comments fb_iframe_widget" data-href="http://tuyendungvietnam.com.vn/nguoi-tim-viec/nhan-vien-phuc-vu-tiec-id14877.html" data-width="735" data-numposts="5" data-colorscheme="light" fb-xfbml-state="rendered"><span style="height: 183px; width: 735px;"><iframe id="f372c52e95e209c" name="f11b812dae9f06" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="https://www.facebook.com/plugins/comments.php?api_key=1527279300817836&amp;channel_url=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2F0F7S7QWJ0Ac.js%3Fversion%3D42%23cb%3Df3ceb332ba89b1%26domain%3Dtuyendungvietnam.com.vn%26origin%3Dhttp%253A%252F%252Ftuyendungvietnam.com.vn%252Ff6f33b08ab39ec%26relation%3Dparent.parent&amp;colorscheme=light&amp;href=http%3A%2F%2Ftuyendungvietnam.com.vn%2Fnguoi-tim-viec%2Fnhan-vien-phuc-vu-tiec-id14877.html&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;skin=light&amp;version=v2.4&amp;width=735" style="border: none; overflow: hidden; height: 183px; width: 735px;"></iframe></span></div>
-    <div class="bgt">
-        <strong style="text-transform:none;">Việc làm cùng nhà Tuyển dụng</strong>
-    </div>     
-    <div class="box_tg">
-        
-        <div class="list_tg" style="width:330px;">
-            <strong><a href="/nguoi-tim-viec/nhan-vien-phuc-vu-tiec-id14877.html">NHÂN VIÊN PHỤC VỤ TIỆC</a></strong>
-            <p><a href="/nguoi-tim-viec/danh-sach-tin-dang-nha-tuyen-dung-ntd14801.html">Hyundai CNS</a></p> 
-        </div>
-        
-        <div class="cl"></div>
-    </div>      
-    <div class="bgt" style="margin-top:15px;">
-        <strong style="text-transform:none;">Việc làm cùng ngành</strong>
-    </div>     
-    <div class="box_tg">
-        
-        <div class="list_tg" style="width:330px;">
-            <strong><a href="/nguoi-tim-viec/nhan-vien-phuc-vu-tiec-id14877.html">NHÂN VIÊN PHỤC VỤ TIỆC</a></strong>
-            <p><a href="/nguoi-tim-viec/danh-sach-tin-dang-nha-tuyen-dung-ntd14801.html">Hyundai CNS</a></p> 
-        </div>
-        
-        <div class="cl"></div>
-    </div>    
-    <div class="bgt" style="margin-top:15px;">
-        <strong style="text-transform:none;">Việc làm tương tự</strong>
-    </div>   
-    <div class="box_tg" style="margin-bottom:20px;">
-        
-        <div class="list_tg" style="width:330px;">
-            <strong><a href="/nguoi-tim-viec/nhan-vien-phuc-vu-tiec-id14877.html">NHÂN VIÊN PHỤC VỤ TIỆC</a></strong>
-            <p><a href="/nguoi-tim-viec/danh-sach-tin-dang-nha-tuyen-dung-ntd14801.html">Hyundai CNS</a></p> 
-        </div>
-        
-        <div class="cl"></div>
-    </div>       
-    
+    <div class="rggt2"><b>Thông tin nhà tuyển dụng</b></div>
+    <table cellpadding="0" cellspacing="0" class="tb_ct">
+      <tbody>
+        <tr>
+          <td class="col1"><div style="width:165px;">Tên công ty</div></td>
+          <td class="col2 pd">{{$employments->name}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Địa chỉ</div></td>
+          <td class="col2 pd">{{$employments->address}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Website</div></td>
+          <td class="col2 pd">{{$employments->website}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Điện thoại</div></td>
+          <td class="col2 pd">{{$employments->contact_phone}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;"> Giới thiệu
+              <div style="text-align:center;">@if($employments->logo !='') <img src="/images/{{$employments->logo}}" alt="{{$employments->name}}" style="max-width:120px;"> @endif </div>
+              <div style="text-align:center;"></div>
+            </div></td>
+          <td class="col2 pd lh">{{$employments->descriptions}}</td>
+        </tr>
+        <tr>
+          <td class="col1"><div style="width:165px;">Quy mô công ty</div></td>
+          <td class="col2 pd">Từ 10 - 24 nhân viên</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="checkbox" id="chk_item0" class="case" checked="checked" name="chk_item[]" style="display:none;" value="14877">
+  <input type="hidden" name="tong_tin" id="tong_tin" value="1">
+  <div class="chuc_nang"> <a href="/employer/{{$employments->id}}/company" class="r"><b>&gt;&gt; Xem đầy đủ thông tin về công ty này</b></a></div>
+  <div class="chia_se"> <strong>Gửi và chia sẻ thông tin việc làm <u>Nhân viên chăm sóc khách hàng</u> qua</strong> <div class="fb-like fb_iframe_widget" </div>
+  <div class="gcong"></div>
+  <div id="___plus_1" ></div>
 </div>
-<div class="ctr">
- <!-- <div class="bgr mtop"><strong>Video tuyển dụng</strong></div>
+<div class="chuc_nang"><a class="red" href="/employement/{{$employments->career_id}}/career"><b>&lt;&lt; Quay lại Ngành nghề</b></a> <a href="/employee" class="r"><b>Quay về trang việc làm &gt;&gt;</b></a></div>
+<div class="fb-comments fb_iframe_widget" data-href="#" data-width="735" data-numposts="5" data-colorscheme="light" fb-xfbml-state="rendered"><span style="height: 183px; width: 735px;">
+  
+  </span></div>
+<div class="bgt"> <strong style="text-transform:none;">Việc làm cùng nhà Tuyển dụng</strong> </div>
+<div class="box_tg">
+  <div class="list_tg" style="width:330px;"> <strong><a href="#">NHÂN VIÊN PHỤC VỤ TIỆC</a></strong>
+    <p><a href="#">Hyundai CNS</a></p>
+  </div>
+  <div class="cl"></div>
+</div>
+<div class="bgt" style="margin-top:15px;"> <strong style="text-transform:none;">Việc làm cùng ngành</strong> </div>
+</div>
+</div>
+<div class="ctr"> 
+  <!-- <div class="bgr mtop"><strong>Video tuyển dụng</strong></div>
   <div class="vipr">
 
   </div>-->
   <div class="bgr mtop"><strong>Tìm ứng viên theo tính chất</strong></div>
   <ul class="vipr">
-    <li class="search"> 
-       <a href="#">Việc làm lương từ 30 triệu trở lên</a> 
-       <a href="#">Việc làm lương từ 20 - 30 triệu</a> 
-       <a href="#">Việc làm lương từ 15 -20 triệu</a> 
-       <a href="#">Việc làm lương từ 10 - 15 triệu</a> 
-       <a href="#">Việc làm cấp quản lý</a>
-       <a href="#">Việc làm bán thời gian</a> 
-       <a href="#">Việc làm cho sinh viên thực tập, mới tốt nghiệp</a> </li>
+    <li class="search"> <a href="#">Việc làm lương từ 30 triệu trở lên</a> <a href="#">Việc làm lương từ 20 - 30 triệu</a> <a href="#">Việc làm lương từ 15 -20 triệu</a> <a href="#">Việc làm lương từ 10 - 15 triệu</a> <a href="#">Việc làm cấp quản lý</a> <a href="#">Việc làm bán thời gian</a> <a href="#">Việc làm cho sinh viên thực tập, mới tốt nghiệp</a> </li>
   </ul>
   <div class="bgr mtop"><strong>Cẩm nang tuyển dụng</strong></div>
   <div class="vipr"> 
@@ -371,14 +354,11 @@
           </div>
           <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 255px; height: 360px; overflow: hidden; z-index: 0;" debug-id="slide-board">
             <div style="width: 255px; height: 360px; top: 0px; left: 0px; position: absolute; background-color: rgb(0, 0, 0); opacity: 0;"></div>
-            <div debug-id="slide-0" style="width: 255px; height: 360px; top: 0px; left: 0px; position: absolute; overflow: hidden; transform: perspective(2000px);">
-                @foreach($articles as $article)
+            <div debug-id="slide-0" style="width: 255px; height: 360px; top: 0px; left: 0px; position: absolute; overflow: hidden; transform: perspective(2000px);"> @foreach($articles as $article)
               <div class="list_newr" style="transform: perspective(2000px);"><a class="img" href="/huong-nghiep/cam-nang-tuyen-dung-viec-lam-voi-nguoi-nhat-nid259.html" style="transform: perspective(2000px);"><img src="/images/news/259.jpg" alt="Cẩm nang tuyển dụng việc làm với người Nhật" style="transform: perspective(2000px);"></a><strong style="transform: perspective(2000px);"><a href="#" style="transform: perspective(2000px);">{{ $article->title}}</a></strong>
                 <p style="transform: perspective(2000px);">{{ $article->short_url}}</p>
               </div>
               @endforeach
-              
-              
               <div style="width: 255px; height: 360px; top: 0px; left: 0px; z-index: 1000; display: none;"></div>
             </div>
             <div debug-id="slide-1" style="width: 255px; height: 360px; top: 0px; left: 255px; position: absolute; overflow: hidden; transform: perspective(2000px);">
@@ -400,7 +380,6 @@
               <div class="list_newr" style="transform: perspective(2000px);"><a class="img" href="/huong-nghiep/ly-do-nhan-vien-cua-ban-xin-nghi-viec-nid183.html" style="transform: perspective(2000px);"><img src="/images/news/183.jpg" alt="Lý do nhân viên của bạn xin nghỉ việc?" style="transform: perspective(2000px);"></a><strong style="transform: perspective(2000px);"><a href="/huong-nghiep/ly-do-nhan-vien-cua-ban-xin-nghi-viec-nid183.html" style="transform: perspective(2000px);">Lý do nhân viên của bạn xin nghỉ việc?</a></strong>
                 <p style="transform: perspective(2000px);">Là một nhà quản lý, bạn có bao giờ tự hỏi, tại sao cứ thời gian cuối năm, bạn lại nhận được nhiều lá đơn xin nghỉ việc của nhân viên? Và đầu năm mới, bạn lại đau đầu đi tìm nhân viên mới?</p>
               </div>
-              
               <div style="width: 255px; height: 360px; top: 0px; left: 0px; z-index: 1000; display: none;"></div>
             </div>
             <div debug-id="slide-3" style="width: 255px; height: 360px; top: 0px; left: -255px; position: absolute; overflow: hidden; transform: perspective(2000px);">

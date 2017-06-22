@@ -41,11 +41,23 @@ class EmploymentsController extends Controller
         $salaries       = Salary::where('is_active', '=', '1')->orderBy('name', 'asc')->get();
         $articles       = Article::where([['isactive', '=', '1'],['category_id', '=', '3']])->orderBy('created', 'desc')->get();
         $employments = DB::table('companyusers')
-            ->join('employments', 'companyusers.id', '=', 'employments.company_id')
-            ->join('companies', 'companies.id', '=', 'companyusers.company_id')
-            ->select('companies.*', 'employments.*', 'companyusers.user_id')->where('employments.id', '=', $id)->orderBy('employments.created', 'desc')
+            ->join('employments', 'companyusers.id', '=', 'employments.companyuser_id')
+            ->join('companies', 'companies.id', '=', 'companyusers.company_id')            
+            ->select('companies.*', 'employments.*', 'companyusers.user_id')->where('employments.id', '=', $id)->orderBy('employments.created_at', 'desc')
             ->first();
-        return view('Employment/detail',compact('careers','provinces','salaries','articles','employments'));
+        $employment_detail = DB::table('employments')            
+            ->leftjoin('experiences', 'experiences.id', '=', 'employments.experience_id')
+            ->leftjoin('careers', 'careers.id', '=', 'employments.career_id')
+            ->leftjoin('degrees', 'degrees.id', '=', 'employments.degree_id')
+            ->leftjoin('levels', 'levels.id', '=', 'employments.level_id')
+            ->leftjoin('typeworks', 'typeworks.id', '=', 'employments.typework_id')
+            ->leftjoin('provinces', 'provinces.id', '=', 'employments.province_id')
+            ->leftjoin('salaries', 'salaries.id', '=', 'employments.salary_id')
+            ->leftjoin('languages', 'languages.id', '=', 'employments.language_id')
+            ->select('employments.id','experiences.name as experiences_name','careers.career_name','degrees.name as degree_name','levels.level_name','typeworks.name as typework_name','provinces.province_name','salaries.name as salary_name','languages.name as language_name')->where('employments.id', '=', $id)
+            ->first();    
+
+        return view('Employment/detail',compact('careers','provinces','salaries','articles','employments','employment_detail'));
     }
 	
 	public function viewcareer($id=null)

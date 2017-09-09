@@ -1,40 +1,10 @@
 @extends('layouts.master')
 @section('title', 'Đăng ký tài khoản người tìm việc')
 @section('content')
-<style type="text/css">
-.button{
-    background: #60a516;
-    color: White;
-    padding: 5px 15px;
-    font-weight: bold;
-    border: none;
-    font-family: Arial;
-    cursor: pointer;
-}    
-</style>
 <script src="/js/calendar/calendar.js" type="text/javascript"></script>
     <style type="text/css" media="screen">@import "/css/calendar.css";</style>  
 
 <div class="adtop"><a href="#" target="_blank"><img src="/uploads/banners/homepage.JPG" alt="Banner top"></a></div>
-<ul class="box_admin2">
-    <li><a href="ntvAdmin.aspx?id=2">Quản lý tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=3">Hồ sơ đã đăng</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=4">Tạo HS tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=5">VL đã lưu</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=6">VL đã ứng tuyển</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=7">NTD của tôi</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=8">NTD đã xem hồ sơ</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=9">HS cá nhân (CV)</a></li>
-    <li><span>|</span></li>
-    <li><a href="ntvAdmin.aspx?id=10">Thông báo</a></li>
-</ul>
 <!--<div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

@@ -78,18 +78,15 @@ class EmploymentsController extends Controller
 		if(){
 	
 		}	
-    */    $careers        = Career::where('status', '=', '1')->orderBy('career_name', 'asc')->get();
+    */    
+        $careers      = Career::where('status', '=', '1')->orderBy('career_name', 'asc')->get();
         $provinces      = Province::where('status', '=', '1')->orderBy('province_name', 'asc')->get();
         $salaries       = Salary::where('is_active', '=', '1')->orderBy('name', 'asc')->get();
         $articles       = Article::where([['isactive', '=', '1'],['category_id', '=', '3']])->orderBy('created', 'desc')->get();
         $employments    = Employment::where('career_id',3)->get();
         return view('Employment/career',compact('careers','provinces','salaries','articles','employments'));
     }
-	public function viewcompany($id=null)
-	{
-		dd($id);
-		return view('Employment/viewcompany');
-	}
+	
 
     /**
      * Show the form for creating a new resource.

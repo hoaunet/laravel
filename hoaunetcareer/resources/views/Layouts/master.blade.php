@@ -1,31 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app()->getLocale() }}">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>@yield('title')</title>
+ <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="/css/style.css" type="text/css" />
 </head>
 <body>
 <div id="contain">
   <ul class="head">
     <li class="l"><a href="/"><img src="/images/logo_s3s_career.jpg" alt="Logo" /></a></li>
-    @if (Route::has('login'))     
-      @if (Auth::check())
-        <li class="r">        
-          <ul class="user_info">
-            <li class="t"><b>Xin chào: {{ Auth::user()->username }}</b> <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Thoát
-                                        </a> <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form></li>
-            <li class="d">
-              <div style="padding-top:5px; padding-bottom:5px;"><span id="head_lblBal" class="cblack">Bạn đang có: <span class="cred"><b>0</b>đ</span> (<a href="#">nạp tiền</a>)</span></div>
-              •<a href="#"> Thông tin cá nhân</a>&nbsp;&nbsp; • <a href="#">Hồ sơ đã đăng</a> </li>
-          </ul>
-        </li>
-      @else    
+    @if (Auth::guest())
       <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {!! csrf_field() !!}
       <li class="r">
@@ -50,13 +36,26 @@
         <div class="t"><a href="{{ url('/register') }}">Đăng ký</a><span>|</span><a href="{{ route('password.request') }}">Quên mật khẩu</a></div>
       </li>
       </form>
-
-      @endif
+      @else
+        <li class="r">        
+          <ul class="user_info">
+            <li class="t"><b>Xin chào: {{ Auth::user()->username }}</b> <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Thoát
+                                        </a> <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form></li>
+            <li class="d">
+              <div style="padding-top:5px; padding-bottom:5px;"><span id="head_lblBal" class="cblack">Bạn đang có: <span class="cred"><b>0</b>đ</span> (<a href="#">nạp tiền</a>)</span></div>
+              •<a href="#"> Thông tin cá nhân</a>&nbsp;&nbsp; • <a href="#">Hồ sơ đã đăng</a> </li>
+          </ul>
+        </li>     
     @endif
   </ul>
   <div style=" background-color:#0C3;">
     <ul class="menu">
-      <li class="home"><a class="ac" href="/"><img src="/images/home.png" alt="Trang chủ" /> Trang chủ</a></li>
+      <li class="home"><a @yield('homeclass') href="/"><img src="/images/home.png" alt="Trang chủ" /> Trang chủ</a></li>
       <li><a href="/employee" class="" >Cho người tìm việc</a></li>
       <li><a href="/employer" class="" >Cho nhà tuyển dụng</a></li>
       <li><a href="#" class="" >Tuyển dụng nhanh</a></li>
@@ -64,7 +63,9 @@
       <li class="n"><a href="/news" class="" >Hướng nghiệp</a></li>
     </ul>
     <div class="live_chat" onmouseover="javascript:move('all')" onmouseout="javascript:out('all')"> <a href="#"><img src="/images/bgql.gif" alt="live chat" /></a>
-      <div style="display:none;" id="all">
+     @if (Route::has('login'))
+        @if(Auth::check() =='2')        
+      <div  id="all">
         <ul>
           <li><a href="#"><img src="/images/icon/ql1.gif" alt="Quản lý tuyển dụng" />Quản lý tuyển dụng</a></li>
           <li><a href="#"><img src="/images/icon/ql2.gif" alt="Tin TD đã đăng" />Tin TD đã đăng</a></li>
@@ -74,8 +75,49 @@
           <li><a href="#"><img src="/images/icon/ql10.gif" alt="Thông báo của BQT" />Thông báo của BQT</a></li>
         </ul>
       </div>
+       @endif
+     @endif 
     </div>
   </div>
+  @if (Route::has('login'))
+    @if(Auth::check() =='2')   
+  <ul class="box_admin2">
+    <li><a href="#">Quản lý tìm việc</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Hồ sơ đã đăng</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Tạo HS tìm việc</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">VL đã lưu</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">VL đã ứng tuyển</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">NTD của tôi</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">NTD đã xem hồ sơ</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">HS cá nhân (CV)</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Thông báo</a></li>
+  </ul>
+   
+  <ul class="box_admin">
+    <li><a href="#">Quản lý tuyển dụng</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Tin TD đã đăng</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Tạo tin TD mới</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Quản lý hồ sơ ứng viên</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Phản hồi của NTV</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Thông tin NTD</a></li>
+    <li><span>|</span></li>
+    <li><a href="#">Thông báo của BQT</a></li>
+</ul>
+  @endif
+  @endif 
   @yield('content')
   <footer>
     <center>
@@ -85,7 +127,7 @@
         <li class="r"> <strong>Hồ sơ trực tuyến</strong> <img src="/images/fm3.gif" alt="icon" /> <span>Dễ dàng tạo hồ sơ trực tuyến để thu hút các nhà tuyển dụng</span> <a href="/users/resume">Tạo Hồ Sơ Ngay</a> </li>
         <li class="cl"></li>
       </ul>
-      <div class="mnf"> <a href="/users/listjob">Quản lý tìm việc</a><span>|</span> <a href="/users/resume">Hồ sơ đã đăng</a><span>|</span> <a href="/users/resume">Tạo HS tìm việc</a><span>|</span> <a href="/users/savejob">Việc làm đã lưu</a><span>|</span> <a href="#">NTD của tôi</a><span>|</span> <a href="http://tuyendungvietnam.com.vn/ntvAdmin.aspx?id=9">Hồ sơ cá nhân</a><span>|</span> <a href="http://tuyendungvietnam.com.vn/">Hướng dẫn</a><span>|</span> <a href="http://tuyendungvietnam.com.vn/">RSS</a> </div>
+      <div class="mnf"> <a href="/users/listjob">Quản lý tìm việc</a><span>|</span> <a href="/users/resume">Hồ sơ đã đăng</a><span>|</span> <a href="/users/resume">Tạo HS tìm việc</a><span>|</span> <a href="/users/savejob">Việc làm đã lưu</a><span>|</span> <a href="#">NTD của tôi</a><span>|</span> <a href="#">Hồ sơ cá nhân</a><span>|</span> <a href="#">Hướng dẫn</a><span>|</span> <a href="#">RSS</a> </div>
       <ul class="ftop">
         <li class="l"><span style="line-height: 50px;">Tìm Tuyển Dụng Việt Nam trên: </span> </li>
         <li class="c"> <a href="#"><img src="/images/icon_gioithieu.gif"> Giới thiệu</a> <a href="#"><img src="/images/icon_lienhequangcao.gif"> Liên hệ quảng cáo</a> <a href="#"><img src="/images/icon_lienhe.gif"> Liên hệ</a> </li>
@@ -113,15 +155,14 @@
   </footer>
 </div>
 <div class="float-ck" style="right: 0;">
-  <div id="hide_float_right" class="hide_float"><a href="javascript:hide_float_right()" class="opened"><img src="/images/support.png" alt="icon" /></a></div>
+  <div id="hide_float_right" class="hide_float"><a href="#" class="opened"><img src="/images/support.png" alt="icon" /></a></div>
   <div id="float_content_right" class="float-content" style="display:none;">
     <div class="yahoo">
       <div style="font-weight:bold; padding-top:10px; color:#000;">Liên Hệ TUYỂN DỤNG VIỆT NAM</div>
-      <div class="ym"><a href="ymsgr:sendim?00&amp;m=http://tuyendungvietnam.com.vn+ Help me?"><img src="http://opi.yahoo.com/online?u=00&amp;m=g&amp;t=1" alt=" E-mail - tuyendungvietnam.com.vn@gmail.com "></a><a href="callto:tuyendungvietnam"><img src="./Tuyển dụng việt nam, tim viec luong cao, tuyen dung nhanh_files/skype.png" alt=" E-mail - tuyendungvietnam.com.vn@gmail.com "></a> E-mail - tuyendungvietnam.com.vn@gmail.com </div>
-      <div class="ym"><a href="ymsgr:sendim?00&amp;m=http://tuyendungvietnam.com.vn+ Help me?"><img src="http://opi.yahoo.com/online?u=00&amp;m=g&amp;t=1" alt="Tel: 04 66 840 555"></a><a href="callto:tuyendungvietnam"><img src="./Tuyển dụng việt nam, tim viec luong cao, tuyen dung nhanh_files/skype.png" alt="Tel: 04 66 840 555"></a>Tel: 04 66 840 555</div>
+      <div class="ym"></div>
       <div style="font-weight:bold; padding-top:10px; color:#000;">Phòng CSKH</div>
-      <div class="ym"><a href="ymsgr:sendim?00&amp;m=http://tuyendungvietnam.com.vn+ Help me?"><img src="http://opi.yahoo.com/online?u=00&amp;m=g&amp;t=1" alt="Ms Kỳ Duyên (sale.saigon)"></a><a href="callto:tuyendungvietnam"><img src="./Tuyển dụng việt nam, tim viec luong cao, tuyen dung nhanh_files/skype.png" alt="Ms Kỳ Duyên (sale.saigon)"></a>Ms Kỳ Duyên (sale.saigon)</div>
-      <div class="ym"><a href="ymsgr:sendim?00&amp;m=http://tuyendungvietnam.com.vn+ Help me?"><img src="http://opi.yahoo.com/online?u=00&amp;m=g&amp;t=1" alt="Ms. Ngọc Hân (salehanoi)"></a><a href="callto:tuyendungvietnam"><img src="./Tuyển dụng việt nam, tim viec luong cao, tuyen dung nhanh_files/skype.png" alt="Ms. Ngọc Hân (salehanoi)"></a>Ms. Ngọc Hân (salehanoi)</div>
+      <div class="ym"></div>
+      <div class="ym"></div>
     </div>
   </div>
 </div>
@@ -136,7 +177,7 @@
   <br style="clear: both;">
 </div>
 <div id="dk" style="display:none;">
-  <div class="dk"> <a href="/ntd-dang-ky.aspx">Nhà tuyển dụng đăng ký</a> <a href="/ntv-dang-ky.aspx">Người tìm việc đăng ký</a> </div>
+  <div class="dk"> <a href="#">Nhà tuyển dụng đăng ký</a> <a href="/ntv-dang-ky.aspx">Người tìm việc đăng ký</a> </div>
 </div>
 </body>
 </html>

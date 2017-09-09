@@ -571,7 +571,7 @@ div.box_send_mail label{ position:relative; top:2px; font-weight:bold; padding-l
 .bor1{border:1px red solid; padding:2px;}
 .red1{ color:Red;}
 
-ul.box_m_news{background-color:#4e8580; overflow:hidden; border-bottom:1px #5fa415 normal; clear:both; padding-bottom:10px;}
+ul.box_m_news{background-color:#aae071; overflow:hidden; border-bottom:1px #5fa415 normal; clear:both; padding-bottom:10px;}
 ul.box_m_news li{ float:left; padding:10px 0px 0px 5px;}
 ul.box_m_news li a{font-weight:bold; border:1px #fff solid; padding:5px; color:#fff; display:block;}
 ul.box_m_news li a.ac,ul.box_m_news li a:hover{ color:#dad7d7; border:1px #eee solid;}
@@ -700,3 +700,12 @@ div.boxM div.bg div.t {
 div.grhh div.t {
     padding-left: 12px;
 }
+.button{
+    background: #60a516;
+    color: White;
+    padding: 5px 15px;
+    font-weight: bold;
+    border: none;
+    font-family: Arial;
+    cursor: pointer;
+}    

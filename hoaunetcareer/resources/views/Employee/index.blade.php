@@ -1,25 +1,6 @@
 @extends('layouts.master')
 @section('title', 'Ứng viên')
 @section('content')
-<ul class="box_admin2">
-    <li><a href="/ntvAdmin.aspx?id=2">Quản lý tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=3">Hồ sơ đã đăng</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=4&amp;p=0">Tạo HS tìm việc</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=5">VL đã lưu</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=6">VL đã ứng tuyển</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=7">NTD của tôi</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=8">NTD đã xem hồ sơ</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=9">HS cá nhân (CV)</a></li>
-    <li><span>|</span></li>
-    <li><a href="/ntvAdmin.aspx?id=10">Thông báo</a></li>
-</ul>
 <div class="adtop"><a href="/" target="_blank"><img src="/uploads/banners/homepage.JPG" alt="Cho nguoi tìm việc"></a></div>
 <div class="bgs">
   <ul class="s">

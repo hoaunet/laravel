@@ -22,8 +22,7 @@ class HomepageController extends Controller
     }
 	public function index()
     {
-        //
-
+        //        
         $careers 		= Career::where('status', '=', '1')->orderBy('career_name', 'asc')->get();
         $child_careers  = Career::where([['status', '=', '1'],['parent_id', '<>', '0']])->orderBy('career_name', 'asc')->get();
         $provinces  	  = Province::where('status', '=', '1')->orderBy('province_name', 'asc')->get();

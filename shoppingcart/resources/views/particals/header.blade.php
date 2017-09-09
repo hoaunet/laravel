@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav navbar-right">
       <li >
-        <a class="nav-link " href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping cart </a>
+        <a class="nav-link " href="{{route('product.shoppingCart')}}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping cart <span class="badge">{{Session::has('cart')?Session::get('cart')->totalQty:''}}</span></a>
       </li>  
       <li  class="nav-item dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"><i class="fa fa-user" aria-hidden="true"></i> User Management <span class="caret"></span></a>

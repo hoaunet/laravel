@@ -29,7 +29,7 @@ If you're not in the mood to read, [Laracasts](https://laracasts.com) contains o
 
 ## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel :
 
 - **[Vehikl](http://vehikl.com)**
 - **[Tighten Co.](https://tighten.co)**
@@ -44,7 +44,7 @@ Thank you for considering contributing to the Laravel framework! The contributio
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Hoaunet at hoaunet@yahoo.com. All security vulnerabilities will be promptly addressed.
 
 ## License
 

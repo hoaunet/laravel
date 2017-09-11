@@ -3,7 +3,7 @@
 <div class="row">
     
     <div class="col-md-4 col-md-offset-4">
-        <h1>Sign Up</h1>
+        <h1>Sign In</h1>
         @if(count($errors) >0)
         <div class="alert alert-danger">
             @foreach($error->all() as $error)
@@ -21,7 +21,8 @@
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="submit" class="btn btn-primary">SignIn</button>
+            <p>Don't have an account? <a href="{{route('user.signup')}}">Sing up instead!</a></p>
         </form>
         
     </div>    

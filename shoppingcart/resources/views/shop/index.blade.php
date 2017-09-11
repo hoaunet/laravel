@@ -3,6 +3,15 @@
 Shopping Cart
 @endsection
 @section('content')
+@if(Session::has('success'))
+<div class="row">
+    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div class="alert alert-success" id="charge-message">
+        {{Session::get('success')}}
+        </div>
+    </div>
+</div>
+@endif
 @foreach($products->chunk(3) as $productchunk)
 <div class="row">
     @foreach($productchunk as $product)

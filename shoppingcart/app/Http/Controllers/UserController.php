@@ -66,4 +66,8 @@ class UserController extends Controller
     	Auth::logout();
     	return redirect()->back();
     }
+    public function getSendmail()
+    {
+        return view('user.sendmail');
+    }
 }

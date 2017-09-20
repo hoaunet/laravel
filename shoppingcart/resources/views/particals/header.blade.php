@@ -30,9 +30,13 @@
         <ul class="dropdown-menu">
           @if(Auth::check())
             <li><a href="{{route('user.profile')}}">Profile</a></li> 
-            <li role="separator" class="divider"><a href="#"></a></li>  
+
+            <li role="separator" class="divider"><a href="#"></a></li>
+            <li role="separator" class="divider"><a href="#"></a></li>
+
             <li><a href="{{route('user.logout')}}">Logout</a></li>  
           @else
+          <li><a href="{{route('user.sendmail')}}">Send mail</a></li> 
           <li><a href="{{route('user.signup')}}">Signup</a></li>   
            <li><a href="{{route('user.signin')}}">Signin</a></li> 
           @endif    
